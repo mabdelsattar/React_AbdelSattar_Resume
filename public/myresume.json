@@ -1,0 +1,206 @@
+{
+  "personalInfo": {
+    "fullName": "Mohammed AbdElSattar Refaey",
+    "title": "Principal Software Engineer (Full Stack – .NET & Angular)",
+    "location": "Cairo, Egypt",
+    "contact": {
+      "phones": [
+        "+20 109 394 8138",
+        "+20 121 180 4025"
+      ],
+      "email": "mabdelsattar92@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/mohammed-abd-elsattar-refaey-a3b6a06b/"
+    }
+  },
+
+  "professionalSummary": "Principal Software Engineer with 10+ years of experience architecting and delivering large-scale enterprise systems using .NET, Angular, Microservices, DDD, Clean Architecture, and Event-Driven Architecture. Proven ability to own system architecture, drive technical strategy, and lead delivery of mission-critical platforms serving millions of users across government, healthcare, education, and SaaS domains. Strong focus on scalability, performance, and long-term maintainability.",
+
+  "technicalSkills": {
+    "backendAndArchitecture": [
+      ".NET",
+      "ASP.NET Core",
+      "Entity Framework Core",
+      "Web APIs",
+      "Microservices",
+      "Event-Driven Architecture",
+      "Domain-Driven Design (DDD)",
+      "Clean Architecture",
+      "Background Workers",
+      "Performance Optimization"
+    ],
+    "messageBrokers": [
+      "RabbitMQ"
+    ],
+    "frontend": [
+      "Angular",
+      "Razor Pages",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "databases": [
+      "SQL Server",
+      "NoSQL Concepts"
+    ],
+    "cloudAndDevOps": [
+      "Microsoft Azure",
+      "CI/CD (Azure DevOps)",
+      "Git",
+      "GitHub",
+      "GitLab"
+    ],
+    "aiAndAutomation": [
+      "AI Prompt Engineering (Cursor, Claude, GitHub Copilot)",
+      "Workflow Automation (n8n)"
+    ]
+  },
+
+  "experience": [
+    {
+      "role": "Principal Full Stack Engineer",
+      "company": "Thiqah",
+      "location": "Cairo, Egypt",
+      "period": {
+        "from": "Jul 2024",
+        "to": "Present"
+      },
+      "highlights": [
+        "Principal contributor to national-scale government platforms",
+        "Designed DDD-based architecture using ABP Framework",
+        "Supported platforms serving millions of citizens",
+        "Led delivery of virtual training and education platforms",
+        "Drove architectural modernization improving performance, scalability, and maintainability"
+      ]
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "Sure (SGT)",
+      "location": "Cairo, Egypt",
+      "period": {
+        "from": "Jan 2023",
+        "to": "Jul 2024"
+      },
+      "highlights": [
+        "Owned technical design and delivery of multiple systems",
+        "Built and delivered a full production system in 3 weeks",
+        "Applied Clean Architecture across backend services",
+        "Led development teams delivering production-ready MVPs under tight deadlines"
+      ]
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "Vezeeta",
+      "location": "Cairo, Egypt",
+      "period": {
+        "from": "Dec 2020",
+        "to": "Jan 2023"
+      },
+      "highlights": [
+        "Core contributor to Vezeeta microservices platform",
+        "Worked on event-driven communication between services"
+      ]
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "FlairsTech (Upland Software – USA)",
+      "period": {
+        "from": "Jun 2020",
+        "to": "Dec 2020"
+      },
+      "highlights": [
+        "Refactored and stabilized legacy enterprise systems"
+      ]
+    },
+    {
+      "role": "Senior Software Engineer",
+      "company": "ITWorx Education",
+      "location": "Cairo, Egypt",
+      "period": {
+        "from": "Sep 2017",
+        "to": "Jun 2020"
+      },
+      "highlights": [
+        "Built and scaled education platforms used by millions",
+        "Core contributor to TeacherKit"
+      ]
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Codelab (Envnt)",
+      "location": "Cairo, Egypt",
+      "period": {
+        "from": "Feb 2016",
+        "to": "Sep 2017"
+      },
+      "highlights": [
+        "Improved backend performance by 70%",
+        "Improved frontend performance by 40%"
+      ]
+    }
+  ],
+
+  "earlierExperience": [
+    "Outsourced Software Engineer – HRSD (Saudi Arabia)",
+    "Software Engineer – NRG (Watanyaa NGO Platform)",
+    "Software Engineer Intern – Cryptech (Android Apps)"
+  ],
+
+  "leadershipAndOwnership": [
+    "Led and mentored development teams",
+    "Owned architecture and design decisions",
+    "Conducted code reviews and technical evaluations",
+    "Participated in technical interviews and hiring"
+  ],
+
+  "education": {
+    "degree": "B.Sc. in Computer & Information Science",
+    "institution": "Ain Shams University",
+    "period": "2011 – 2015",
+    "graduationProject": "Face Recognition using Machine Learning",
+    "grade": "Excellent"
+  },
+
+  "certifications": [
+    {
+      "name": "Agile Certificate",
+      "issuer": "ITIDA",
+      "year": 2020
+    },
+    {
+      "name": "Google Project Management",
+      "issuer": "Google",
+      "year": 2022
+    },
+    {
+      "name": "Generative AI for Software Development",
+      "issuer": "Coursera",
+      "year": 2025
+    },
+    {
+      "name": "ICAIL",
+      "issuer": "Ministry of Youth & Sports & AMG",
+      "year": 2025
+    }
+  ],
+
+  "communityAndTraining": {
+    "community": {
+      "role": "Co-Organizer & Instructor",
+      "organization": "GDG Helwan",
+      "period": "2019 – Present",
+      "activities": [
+        "Speaker on Flutter",
+        "Kotlin",
+        "Firebase",
+        "Online and offline sessions",
+        "Reached 1,000+ developers"
+      ]
+    },
+    "professionalTraining": [
+      "Vision Tech — .NET MVC",
+      "ITI — Android Development",
+      "Digital Egypt Cubs Initiative — JavaScript",
+      "FCIS — Android Development"
+    ]
+  }
+}
