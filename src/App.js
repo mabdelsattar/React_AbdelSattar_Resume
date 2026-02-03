@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import PersonalInfo from './components/PersonalInfo';
 import ProfessionalSummary from './components/ProfessionalSummary';
 import TechnicalSkills from './components/TechnicalSkills';
@@ -8,30 +7,25 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Community from './components/Community';
-import Login from './components/Login';
-import { AuthProvider, useAuth } from './context/AuthContext';
-import { useQuery } from './hooks/useQuery';
-import { fetchResumeData } from './services/api';
 
-/**
- * ProtectedRoute Component
- * Only allows authenticated users to access resume
- */
-const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated } = useAuth();
+function App() {
+  const [resumeData, setResumeData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!isAuthenticated) {
-    return <Navigate to="/login" replace />;
-  }
+  useEffect(() => {
+    fetch('/myresume.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setResumeData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
-  return children;
-};
-
-/**
- * ResumeContent Component
- * Displays all resume sections
- */
-const ResumeContent = ({ resumeData, loading, error }) => {
   if (loading) {
     return <div className="loading">Loading resume...</div>;
   }
@@ -56,48 +50,6 @@ const ResumeContent = ({ resumeData, loading, error }) => {
         <Community data={resumeData} />
       </div>
     </div>
-  );
-};
-
-/**
- * ResumeRoute Component
- * Handles data fetching for resume page
- */
-const ResumeRoute = () => {
-  const { data: resumeData, loading, error } = useQuery(fetchResumeData, {
-    onSuccess: (data) => console.log('Resume data loaded successfully:', data),
-    onError: (error) => console.error('Error loading resume data:', error),
-  });
-
-  return <ResumeContent resumeData={resumeData} loading={loading} error={error} />;
-};
-
-/**
- * Main App Component
- */
-function App() {
-  return (
-    <AuthProvider>
-      <Router>
-        <Routes>
-          {/* Login Route */}
-          <Route path="/login" element={<Login />} />
-
-          {/* Protected Resume Route */}
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <ResumeRoute />
-              </ProtectedRoute>
-            }
-          />
-
-          {/* Redirect unknown routes to home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </Router>
-    </AuthProvider>
   );
 }
 
