@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import PersonalInfo from './components/PersonalInfo';
 import ProfessionalSummary from './components/ProfessionalSummary';
 import TechnicalSkills from './components/TechnicalSkills';
@@ -7,24 +8,15 @@ import Experience from './components/Experience';
 import Education from './components/Education';
 import Certifications from './components/Certifications';
 import Community from './components/Community';
+import { useQuery } from './hooks/useQuery';
+import { fetchResumeData } from './services/api';
+import Contact from './components/Contact';
 
 function App() {
-  const [resumeData, setResumeData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch('/myresume.json')
-      .then((response) => response.json())
-      .then((data) => {
-        setResumeData(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+  const { data: resumeData, loading, error, refetch } = useQuery(fetchResumeData, {
+    enabled: true,
+    onError: (err) => console.error('Failed loading resume:', err),
+  });
 
   if (loading) {
     return <div className="loading">Loading resume...</div>;
@@ -38,8 +30,12 @@ function App() {
     return <div className="error">No resume data available</div>;
   }
 
-  return (
+  const ResumePage = () => (
     <div className="App">
+      <div className="top-bar">
+        <Link to="/contact" className="contact-button">Contact Me</Link>
+      </div>
+
       <div className="resume-container">
         <PersonalInfo data={resumeData} />
         <ProfessionalSummary data={resumeData} />
@@ -50,6 +46,15 @@ function App() {
         <Community data={resumeData} />
       </div>
     </div>
+  );
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ResumePage />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,7 +1,7 @@
 {
   "personalInfo": {
     "fullName": "Mohammed AbdElSattar Refaey",
-    "title": "Principal Software Engineer (Full Stack – .NET & Angular)",
+    "title": "Principal Software Engineer (Full Stack – .NET & Angular & React)",
     "location": "Cairo, Egypt",
     "contact": {
       "phones": [
@@ -33,6 +33,7 @@
     ],
     "frontend": [
       "Angular",
+      "React",
       "Razor Pages",
       "JavaScript",
       "HTML",

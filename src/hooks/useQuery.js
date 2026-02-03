@@ -1,37 +1,35 @@
 /**
  * Custom Hook: useQuery
- * Handles data fetching with loading, error, and data states
- * Professional approach for API calls
+ * Simplified data fetching with loading, error, and data states
  */
 
 import { useState, useEffect } from 'react';
 
 /**
- * useQuery Hook
- * @param {Function} queryFn - Function that returns a Promise (API call)
- * @param {Object} options - Configuration options
- * @returns {Object} { data, loading, error, refetch }
+ * Simple useQuery Hook
+ * @param {Function} queryFn - Function that returns a Promise
+ * @param {Object} options - { enabled = true, onSuccess, onError }
  */
 export const useQuery = (queryFn, options = {}) => {
   const { enabled = true, onSuccess, onError } = options;
 
-  const [state, setState] = useState({
-    data: null,
-    loading: false,
-    error: null,
-  });
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const fetchData = async () => {
-    setState({ data: null, loading: true, error: null });
-
+    setLoading(true);
+    setError(null);
     try {
       const result = await queryFn();
-      setState({ data: result, loading: false, error: null });
+      setData(result);
       onSuccess?.(result);
     } catch (err) {
-      const error = err instanceof Error ? err.message : 'Unknown error occurred';
-      setState({ data: null, loading: false, error });
-      onError?.(error);
+      const message = err instanceof Error ? err.message : String(err);
+      setError(message);
+      onError?.(message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,12 +37,8 @@ export const useQuery = (queryFn, options = {}) => {
     if (enabled) {
       fetchData();
     }
-  }, [enabled]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [enabled, queryFn]); // re-run when enabled or queryFn changes
 
-  return {
-    data: state.data,
-    loading: state.loading,
-    error: state.error,
-    refetch: fetchData,
-  };
+  return { data, loading, error, refetch: fetchData };
 };
